@@ -1,3 +1,6 @@
+%AW. see comments below. 0.9/1.
+
+
 %Inclass assignment 8
 
 %Using the swalign function
@@ -28,6 +31,8 @@ start_lg
 % continuous than the that with a high GapOpen. This is why the middle twenty
 % basepairs on the high GapOpen graph is scattering.
 
+%AW: mostly correct but note when GapOpen is high it forces mismatches. When low, it puts in gaps instead. -0.05.
+
 % E. run swalign with a low value of GapOpen but a high value of ExtendGap,
 % explain the result
 [score_E, align_E, start_E] = swalign(seq1, seq2, 'Alphabet', 'nt', 'GapOpen', 1, 'Extendgap', 15, 'Showscore', true);
@@ -41,6 +46,9 @@ start_E
 % low. However, the subsequent gaps are not likely to be large gaps, since
 % the gap penalty becomes high with the ExtendGap value. 
 
+%AW: this is quite correct. Every gap is treated the same. The difference is that the gaps will be short since
+%every base pair after the first is penalized more. -0.05. 
+
 % F. run swalign align with the default value of GapOpen and a low value
 % of ExtendGap and explain the result. 
 [score_le, align_le, start_le] = swalign(seq1, seq2, 'Alphabet', 'nt', 'Extendgap', 1, 'Showscore', true);
@@ -52,3 +60,5 @@ start_le
 % Therefore, we could observe the same gap for the first gap, but larger
 % gaps later. Overall, the figure with the loe GapOpen value is less
 % continuous than the default one. 
+
+%AW: same comment as above, this is about basepairs in the same gap. Not abot the first vs second. 
